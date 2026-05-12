@@ -1,0 +1,23 @@
+# Node dependencies
+node_modules/
+.pnpm-debug.log*
+
+# Python dependencies
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+build/
+dist/
+
+# Env files
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+backend/storage/

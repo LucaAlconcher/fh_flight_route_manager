@@ -1,0 +1,74 @@
+/* 1. Kill all default margins/padding and fix box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Ensure the app fills the entire viewport */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevents the whole page from scrolling */
+}
+
+/* 3. Improve text rendering */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* 4. Remove list styles (useful for your drag-and-drop lists) */
+ul, ol {
+  list-style: none;
+}
+
+/* 5. Make inputs/buttons inherit fonts */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 6. Simple, thin scrollbars for your scrollable lists */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+
+
+
+
+
+/* Clean map labels */
+.leaflet-tooltip.custom-label {
+  background-color: white;
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-weight: 600;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  color: #222;
+  white-space: nowrap;
+}
+
+/* Remove the little arrow/triangle */
+.leaflet-tooltip-top.custom-label:before {
+  display: none;
+}
