@@ -73,6 +73,21 @@ class Waypoint(Base):
   longitude = Column(Float)
   height = Column(Float)
 
+class Model3D(Base):
+  __tablename__ = "models_3d"
+
+  id = Column(String, primary_key=True, index=True)
+  project_uuid = Column(String, index=True)
+  name = Column(String)
+  file_type = Column(String)
+  size = Column(BigInteger)
+  update_time = Column(BigInteger)
+  create_time = Column(BigInteger)
+
+  # Set once the model has been downloaded and extracted locally
+  local_tileset_path = Column(String, nullable=True)
+  sync_status = Column(String, default="PENDING")
+
 if RESET_DATABASE:
   print("⚠️  RESET_DATABASE is True. Dropping all tables...")
   Base.metadata.drop_all(bind=engine)

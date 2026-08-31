@@ -2,12 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.flight_routes import router as flight_routes_router
 from api.annotations import router as annotations_router
+from api.models import router as models_router
 
 app = FastAPI()
 
 app.add_middleware(
   CORSMiddleware,
   allow_origins=["http://localhost:5173"],
+  allow_origin_regex=r"http://localhost:\d+",
   allow_credentials=True,
   allow_methods=["*"],
   allow_headers=["*"],
@@ -16,6 +18,7 @@ app.add_middleware(
 # Include the sync routes
 app.include_router(flight_routes_router)
 app.include_router(annotations_router)
+app.include_router(models_router)
 
 
 @app.get("/")

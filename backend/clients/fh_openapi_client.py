@@ -23,7 +23,7 @@ class FlightHubClient:
     if method in ['POST', 'PUT', 'PATCH']:
       kwargs['json'] = json_data if json_data is not None else {}
     
-    tqdm.write(f"🚀 {method} -> {url}")
+    tqdm.write(f"[FH] {method} -> {url}")
     
     response = requests.request(method, url, **kwargs)
     response.raise_for_status()
@@ -35,3 +35,9 @@ class FlightHubClient:
 
   def get_project_flight_route_details(self, route_id):
     return self._request("GET", f"/openapi/v0.1/wayline/{route_id}")
+
+  def get_project_models(self):
+    return self._request("GET", "/openapi/v2.0/model")
+
+  def get_model_download_url(self, file_id):
+    return self._request("GET", f"/openapi/v2.0/model/download-url/{file_id}")
